@@ -1,10 +1,28 @@
-- 👋 Hi, I’m @huangyuchen123
-- 👀 I’m interested in ...
-- 🌱 I’m currently learning ...
-- 💞️ I’m looking to collaborate on ...
-- 📫 How to reach me ...
+#include <iostream>
+#include <string> 
+using namespace std;
+bool huiwen(string s){
+ int n = s.size();
+ if(s[0]!=s[n-1]){
+  return false;
+ }
+ if(n==1||n==0){
+  return true;
+ }
+ s.erase(0, 1);
+ s.erase(n-2, n-1);
+ return huiwen(s);
+}
 
-<!---
-huangyuchen123/huangyuchen123 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+int main(){
+ string s;
+ cin >> s;
+ bool res = huiwen(s);
+ if(res==1){
+  cout <<s<<" is a palindrome"<< endl;
+ }
+ else{
+  cout << s<<" is not a palindrome" << endl;
+ }
+ return 0;
+} 
